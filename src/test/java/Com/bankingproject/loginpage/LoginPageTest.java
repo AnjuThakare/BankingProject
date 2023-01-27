@@ -1,14 +1,20 @@
 package Com.bankingproject.loginpage;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Com.bankingproject.base.BaseClass;
+import bankingproject.pom.LoginPagePom;
 
 public class LoginPageTest extends BaseClass {
 
+	
+	LoginPagePom lognPagePom ;
 	//WebDriver driver;
+	
 		@BeforeClass
 		public void setUp() {
 			launchWebsite();
@@ -18,6 +24,9 @@ public class LoginPageTest extends BaseClass {
 			driver.close();
 			
 		}
+		
+		
+		
 		@Test
 		public void testTitle() {
 			String pageTitle = driver.getTitle();
@@ -41,4 +50,12 @@ public class LoginPageTest extends BaseClass {
 	
 	
 	
+			@Test
+			public void clickOnLoginButton() throws InterruptedException {
+				lognPagePom = new LoginPagePom();
+				lognPagePom.clickOnLoginButton();
+			}
+			
+			
+			
 }
